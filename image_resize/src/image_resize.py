@@ -1,5 +1,6 @@
 """
 pip install Pillow
+pip install joblib
 """
 
 """
@@ -9,6 +10,7 @@ pprint(file)
 
 
 from PIL import Image, ImageFilter
+from joblib import Parallel, delayed
 import glob
 import os
 
@@ -28,5 +30,10 @@ class Image_Resize:
 
 
 images = Image_Resize.get_base_images()
-for image in images:
-    Image_Resize.image_resize(image)
+
+ret = Parallel(n_jobs=-1)(
+	[
+		delayed(Image_Resize.image_resize)(image)
+		for image in images
+	]
+)
