@@ -17,8 +17,8 @@ class Image_Resize:
     @staticmethod
     def image_resize(image_file_path):
         img = Image.open(image_file_path)
-        img_resize_lanczos = img.resize((512, 512), Image.LANCZOS)
-        gray_img = img_resize_lanczos.convert('L')
+        resize_image = img.resize((512, 512), Image.LANCZOS)
+        gray_img = resize_image.convert('L')
         gray_img.save('../image/out/' + os.path.basename(image_file_path))
 
 
