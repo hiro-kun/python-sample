@@ -1,9 +1,3 @@
-"""
-pip install Pillow
-pip install joblib
-pip install yapf
-"""
-
 from PIL import Image, ImageFilter
 from joblib import Parallel, delayed
 import glob
