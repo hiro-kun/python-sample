@@ -3,12 +3,6 @@ pip install Pillow
 pip install joblib
 """
 
-"""
-from pprint import pprint
-pprint(file)
-"""
-
-
 from PIL import Image, ImageFilter
 from joblib import Parallel, delayed
 import glob
