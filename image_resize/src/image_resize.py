@@ -1,6 +1,7 @@
 """
 pip install Pillow
 pip install joblib
+pip install yapf
 """
 
 from PIL import Image, ImageFilter
@@ -11,8 +12,8 @@ import os
 IMG_BASE_DIR = '../image/base/*.jpg'
 IMG_OUT_DIR = '../image/out/'
 
-class Image_Resize:
 
+class Image_Resize:
     @staticmethod
     def get_base_images():
         return glob.glob(IMG_BASE_DIR)
@@ -28,8 +29,4 @@ class Image_Resize:
 images = Image_Resize.get_base_images()
 
 ret = Parallel(n_jobs=-1)(
-	[
-		delayed(Image_Resize.image_resize)(image)
-		for image in images
-	]
-)
+    [delayed(Image_Resize.image_resize)(image) for image in images])
